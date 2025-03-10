@@ -59,5 +59,6 @@ type login{
 type wishlist_entry{
    user_id:String,
    movie_id:String,
+   status:Boolean
 }
 `;

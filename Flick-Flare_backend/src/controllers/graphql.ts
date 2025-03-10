@@ -98,13 +98,15 @@ export const Create_Wishlist_entry = async (
 ) => {
   try {
     const check = Wishlist.findOne({ user_id, movie_id });
-    if (check) {
+    console.log("hit")
+    if (check?.length>0) {
       return { status: false };
     } else {
       const entry = new Wishlist();
       entry.user_id = user_id;
       entry.movie_id = movie_id;
       entry.save();
+      return {status:true}
     }
   } catch (e) {
     return { status: false };
