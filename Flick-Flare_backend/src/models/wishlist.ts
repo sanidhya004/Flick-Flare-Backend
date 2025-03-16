@@ -8,8 +8,9 @@ interface IWishlist{
 
 
 const wishlist= new mongoose.Schema({
-     user_id:{type:Schema.Types.ObjectId,ref:"users",required:true},
-     movie_id:{type:Schema.Types.ObjectId,ref:"movie",required:true},
+    user_id: { type: Schema.Types.ObjectId, ref: "User", required: true },  // Correct ref
+    movie_id: { type: Schema.Types.ObjectId, ref: "Movie", required: true }, // Correct ref
+   
 })
 
 

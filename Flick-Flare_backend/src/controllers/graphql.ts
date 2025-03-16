@@ -97,9 +97,10 @@ export const Create_Wishlist_entry = async (
   { user_id, movie_id }: Wishlist
 ) => {
   try {
-    const check = Wishlist.findOne({ user_id, movie_id });
-    console.log("hit")
-    if (check?.length>0) {
+    const check = await Wishlist.findOne({ user_id, movie_id });
+  
+
+    if (check) {
       return { status: false };
     } else {
       const entry = new Wishlist();
@@ -112,3 +113,27 @@ export const Create_Wishlist_entry = async (
     return { status: false };
   }
 };
+
+
+export const getWishlist_byUserID= async(_:unknown,  { user_id }: Wishlist)=>{
+ 
+  const user= await User.findOne({_id:user_id})
+    if(!user){
+      return {status:false}
+    }
+    
+     else{
+         
+        const wishlistMovies = await Wishlist.find({ user_id })
+        .populate({
+            path: "movie_id",
+            select: "title description releaseYear genre imdb"
+        })
+        .exec();
+
+
+        console.log(wishlistMovies);
+        return 
+
+     }
+}

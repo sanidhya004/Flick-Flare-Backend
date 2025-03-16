@@ -1,5 +1,5 @@
 
-import { helloWord,newPost,signUp,login,Upsert_Movie,Create_Wishlist_entry} from "../../controllers/graphql.js";
+import { helloWord,newPost,signUp,login,Upsert_Movie,Create_Wishlist_entry,getWishlist_byUserID} from "../../controllers/graphql.js";
 
 export const graphQLResolver = {
     Query: {
@@ -10,7 +10,9 @@ export const graphQLResolver = {
         signUp:signUp,
         login:login,
         Upsert_movie:Upsert_Movie,
-        wishlist_entry:Create_Wishlist_entry
+        wishlist_entry:Create_Wishlist_entry,
+        getWishlist_byUserID:getWishlist_byUserID
+
     },
 };
 

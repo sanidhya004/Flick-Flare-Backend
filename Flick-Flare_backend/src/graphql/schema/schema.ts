@@ -11,6 +11,7 @@ type Mutation {
     login(email:String!,password:String!):login
     Upsert_movie(title: String!, description: String!, releaseYear: Int!, genre: String!,imdb:String!):Upsert_movie
     wishlist_entry(user_id:String,movie_id:String):wishlist_entry
+    getWishlist_byUserID(user_id:String):response
 
 
 }
@@ -60,5 +61,11 @@ type wishlist_entry{
    user_id:String,
    movie_id:String,
    status:Boolean
+}
+
+
+type response{
+    user_id:String
+    status:Boolean
 }
 `;
